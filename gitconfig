@@ -1,0 +1,17 @@
+[pull]
+	default = current
+[push]
+	default = current
+[user]
+	name = ObviouslyGreen
+	email = shibo.yao@gmail.com
+	signingkey = 0566A16FCA58875A
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/shibo/.gitignore_global
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
