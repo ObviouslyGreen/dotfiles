@@ -43,7 +43,6 @@ set list
 " strip trailing whitespace automatically
 autocmd BufWritePre *.txt,*.js,*.py,*.sh,*.go :call CleanExtraSpaces()
 
-
 " colors
 set t_Co=256
 set termguicolors
