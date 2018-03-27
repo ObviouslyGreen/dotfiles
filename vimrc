@@ -65,6 +65,7 @@ map <F3> :call ToggleCopyPasteMode()<CR>
 nnoremap <c-p> :FZF<cr>
 " vim-go get referrers
 nmap <leader>r <Plug>(go-referrers)
+nmap <leader>f :Ag<CR>
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
