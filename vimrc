@@ -57,17 +57,19 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" find current file in tree
-map <leader>f :NERDTreeFind<cr>
 " toggle nerdtree
 map <F2> :NERDTreeToggle<CR>
 " toggle copy/paste mode
 map <F3> :call ToggleCopyPasteMode()<CR>
+" find current file in tree
+map <F4> :NERDTreeFind<cr>
 " fzf -> ctrlp
 nnoremap <c-p> :FZF<cr>
 " vim-go get referrers
 nmap <leader>r <Plug>(go-referrers)
 nmap <leader>f :Ag<CR>
+autocmd Filetype go map <buffer> gd :LSClientGoToDefinition<cr>
+autocmd Filetype go map <buffer> gr :LSClientFindReferences<cr>
 
 " YouCompleteMe
 " don't show preview pane
@@ -100,11 +102,6 @@ let g:go_highlight_build_constraints = 1
 " setup vim-lsc
 let g:lsc_server_commands = {'go': 'go-langserver'}
 let g:lsc_enable_autocomplete = v:false
-" gd overrides vim-go go to def
-let g:lsc_auto_map = {
-    \ 'GoToDefinition': 'gd',
-    \ 'FindReferences': 'gr',
-    \}
 
 " functions
 fun CleanExtraSpaces()
