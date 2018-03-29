@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'natebosch/vim-lsc'
 " visual stuff
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -31,7 +32,7 @@ set smartcase
 
 " whitespace
 filetype plugin indent on
-set tabstop=4 
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -59,7 +60,7 @@ nnoremap <C-H> <C-W><C-H>
 map <leader>f :NERDTreeFind<cr>
 " toggle nerdtree
 map <F2> :NERDTreeToggle<CR>
-" toggle copy/paste mode 
+" toggle copy/paste mode
 map <F3> :call ToggleCopyPasteMode()<CR>
 " fzf -> ctrlp
 nnoremap <c-p> :FZF<cr>
@@ -67,6 +68,9 @@ nnoremap <c-p> :FZF<cr>
 nmap <leader>r <Plug>(go-referrers)
 nmap <leader>f :Ag<CR>
 
+" YouCompleteMe
+" don't show preview pane
+set completeopt-=preview
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -92,11 +96,22 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 
+" setup vim-lsc
+let g:lsc_server_commands = {'go': 'go-langserver'}
+let g:lsc_enable_autocomplete = v:false
+" gd overrides vim-go go to def
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': 'gd',
+    \ 'FindReferences': 'gr',
+    \}
+
 " functions
 fun CleanExtraSpaces()
-    let save_cursor = getpos(".") 
+    let save_cursor = getpos(".")
     let old_query = getreg('/')
-    silent! %s/\s\+$//e call setpos('.', save_cursor) call setreg('/', old_query)
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
 endfun
 
 fun ToggleCopyPasteMode()
@@ -104,3 +119,4 @@ fun ToggleCopyPasteMode()
     set number!
     set list!
 endfun
+
