@@ -25,6 +25,7 @@ call plug#end()
 " general settings
 syntax enable
 set encoding=utf-8
+set fileencoding=utf-8
 set number
 set splitright
 set ignorecase
