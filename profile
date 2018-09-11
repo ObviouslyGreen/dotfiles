@@ -46,6 +46,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m '
 alias gca='git commit --amend'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gm='git merge'
 alias gmf='git merge --no-ff'
 alias gms='git merge --squash'
@@ -55,7 +56,7 @@ alias grh='git reset --hard'
 alias gst='git stash'
 alias gsta='git stash apply'
 alias memcached-restart="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist;launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
-
+alias agfzf='ag --nobreak --nonumbers --noheading . | fzf'
 
 # init pyenv
 eval "$(pyenv init -)"
@@ -70,3 +71,6 @@ pathadd "$(npm bin -g)"
 
 export GPG_TTY=$(tty)
 
+# git aware prompt
+export PS1="\u@\h \W \[$txtgrn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
