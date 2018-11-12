@@ -11,7 +11,7 @@ if [ -d "$HOME/bin" ] ; then
     pathadd "$HOME/bin"
 fi
 
-# Set CLICOLOR if you want Ansi Colors in iTerm2 
+# Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
 
 # Set colors to match iTerm2 Terminal Colors
@@ -26,7 +26,11 @@ pathadd() {
 # paths
 pathadd /Users/shibo/scripts
 export GOPATH=/Users/shibo/Code/go
+# export GO111MODULE=on
 pathadd "$GOPATH/bin"
+export PY=/Users/shibo/Code/python
+export JS=/Users/shibo/Code/js
+export DEV=/Users/shibo/Code/dev
 
 # aliases
 alias c='clear'

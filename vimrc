@@ -39,7 +39,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.go,*.mod setlocal noexpandtab tabstop=4 shiftwidth=4
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set list
 " strip trailing whitespace automatically
