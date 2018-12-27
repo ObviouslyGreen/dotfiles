@@ -6,7 +6,7 @@
 	name = ObviouslyGreen
 	email = shibo.yao@gmail.com
 	signingkey = 0566A16FCA58875A
-[url "ssh://git@github.com/"]
+[url "git@github.com:"]
 	insteadOf = https://github.com/
 [core]
 	excludesfile = /Users/shibo/.gitignore_global
