@@ -1,11 +1,3 @@
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
 pathadd() {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
         PATH="${PATH:+"$PATH:"}$1"
@@ -16,12 +8,17 @@ pathadd() {
 if [ -d "$HOME/bin" ] ; then
     pathadd "$HOME/bin"
 fi
+pathadd /usr/local/bin
 
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
 
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
+
+# Bash completion compat
+autoload bashcompinit
+bashcompinit
 
 # paths
 pathadd /Users/shibo/scripts
@@ -66,9 +63,6 @@ alias agfzf='ag --nobreak --nonumbers --noheading . | fzf'
 
 # init pyenv
 eval "$(pyenv init -)"
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
 
 # init nvm
 export NVM_DIR="$HOME/.nvm"
@@ -76,8 +70,3 @@ export NVM_DIR="$HOME/.nvm"
 pathadd "$(npm bin -g)"
 
 export GPG_TTY=$(tty)
-
-# git aware prompt
-export PS1="\u@\h \W \[\$txtcyn\]\$git_branch\[\$txtred\]\$git_dirty\[\$txtrst\]\$ "
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
