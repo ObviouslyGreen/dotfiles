@@ -9,6 +9,7 @@ if [ -d "$HOME/bin" ] ; then
     pathadd "$HOME/bin"
 fi
 pathadd /usr/local/bin
+pathadd /opt/homebrew
 
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
@@ -70,3 +71,4 @@ export NVM_DIR="$HOME/.nvm"
 pathadd "$(npm bin -g)"
 
 export GPG_TTY=$(tty)
+eval $(/opt/homebrew/bin/brew shellenv)
