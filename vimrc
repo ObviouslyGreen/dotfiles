@@ -7,7 +7,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'natebosch/vim-lsc'
 " visual stuff
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -18,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 " lang specific
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'justinmk/vim-sneak'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -68,8 +68,6 @@ nnoremap <c-p> :FZF<cr>
 " vim-go get referrers
 nmap <leader>r <Plug>(go-referrers)
 nmap <leader>f :Ag<CR>
-autocmd Filetype go map <buffer> gd :LSClientGoToDefinition<cr>
-autocmd Filetype go map <buffer> gr :LSClientFindReferences<cr>
 
 " YouCompleteMe
 " don't show preview pane
@@ -83,7 +81,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close nerdtree if only pane left
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " open nerdtree on new tab as well
-autocmd BufWinEnter * silent NERDTreeMirror
+" autocmd BufWinEnter * silent NERDTreeMirror
 
 " airline
 let g:airline_theme='deus'
@@ -98,10 +96,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
-
-" setup vim-lsc
-let g:lsc_server_commands = {'go': 'go-langserver'}
-let g:lsc_enable_autocomplete = v:false
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_referrers_mode = 'gopls'
 
 " functions
 fun CleanExtraSpaces()
