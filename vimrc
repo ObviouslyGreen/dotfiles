@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'tyru/open-browser.vim'
 " visual stuff
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -14,6 +15,8 @@ Plug 'vim-airline/vim-airline-themes'
 " git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tyru/open-browser-github.vim'
 " lang specific
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
@@ -72,6 +75,8 @@ nmap <leader>f :Ag<CR>
 " YouCompleteMe
 " don't show preview pane
 set completeopt-=preview
+let g:ycm_gopls_binary_path="$GOPATH/bin/gopls"
+
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -81,24 +86,24 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close nerdtree if only pane left
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " open nerdtree on new tab as well
-" autocmd BufWinEnter * silent NERDTreeMirror
+autocmd BufWinEnter * silent NERDTreeMirror
 
 " airline
 let g:airline_theme='deus'
 let g:airline_powerline_fonts=1
 
 " vim-go
-let g:go_fmt_command = "goimports"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
+let g:go_fmt_command="goimports"
+let g:go_highlight_types=1
+let g:go_highlight_fields=1
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_operators=1
+let g:go_highlight_extra_types=1
+let g:go_highlight_build_constraints=1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-let g:go_referrers_mode = 'gopls'
+let g:go_referrers_mode='gopls'
 
 " functions
 fun CleanExtraSpaces()
