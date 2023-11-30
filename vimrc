@@ -21,6 +21,7 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'justinmk/vim-sneak'
+Plug 'buoto/gotests-vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -104,6 +105,10 @@ let g:go_highlight_build_constraints=1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_referrers_mode='gopls'
+
+" vim-sneak
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 
 " functions
 fun CleanExtraSpaces()
