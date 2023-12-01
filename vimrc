@@ -6,7 +6,8 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'github/copilot.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tyru/open-browser.vim'
 " visual stuff
 Plug 'morhetz/gruvbox'
@@ -73,10 +74,17 @@ nnoremap <c-p> :FZF<cr>
 nmap <leader>r <Plug>(go-referrers)
 nmap <leader>f :Ag<CR>
 
-" YouCompleteMe
-" don't show preview pane
-set completeopt-=preview
-let g:ycm_gopls_binary_path="$GOPATH/bin/gopls"
+" coc
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-go', 'coc-html']
+
+" copilot
+let g:copilot_filetypes={
+    \ '*': v:false,
+    \ 'go': v:true,
+    \ 'python': v:true,
+    \ 'javascript': v:true,
+\ }
+
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
