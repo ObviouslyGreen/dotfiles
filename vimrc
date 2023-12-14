@@ -62,6 +62,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+noremap <silent> <C-S-Left> :vertical resize +1<CR>
+noremap <silent> <C-S-Right> :vertical resize -1<CR>
+noremap <silent> <C-S-Up> :horizontal resize +1<CR>
+noremap <silent> <C-S-Down> :horizontal resize -1<CR>
 " toggle nerdtree
 map <F2> :NERDTreeToggle<CR>
 " toggle copy/paste mode
@@ -76,6 +80,7 @@ nmap <leader>f :Ag<CR>
 
 " coc
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-go', 'coc-html']
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " copilot
 let g:copilot_filetypes={
@@ -94,8 +99,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " autocmd VimEnter * wincmd p
 " close nerdtree if only pane left
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" open nerdtree on new tab as well
-autocmd BufWinEnter * silent NERDTreeMirror
 
 " airline
 let g:airline_theme='deus'
@@ -113,6 +116,9 @@ let g:go_highlight_build_constraints=1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_referrers_mode='gopls'
+
+" gotests-vim
+let g:gotests_template = ''
 
 " vim-sneak
 map f <Plug>Sneak_s
