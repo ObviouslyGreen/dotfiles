@@ -9,6 +9,8 @@ Plug 'tpope/vim-sensible'
 Plug 'github/copilot.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tyru/open-browser.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'mbbill/undotree'
 " visual stuff
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -21,7 +23,6 @@ Plug 'tyru/open-browser-github.vim'
 " lang specific
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'justinmk/vim-sneak'
 Plug 'buoto/gotests-vim'
 
 " List ends here. Plugins become visible to Vim after this call.
@@ -72,6 +73,7 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :call ToggleCopyPasteMode()<CR>
 " find current file in tree
 map <F4> :NERDTreeFind<cr>
+map <F5> :UndotreeToggle<cr>
 " fzf -> ctrlp
 nnoremap <c-p> :FZF<cr>
 " vim-go get referrers
