@@ -11,6 +11,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tyru/open-browser.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-sleuth'
 " visual stuff
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
@@ -36,15 +37,17 @@ set number
 set splitright
 set ignorecase
 set smartcase
+set foldmethod=indent
+set nofoldenable
 
 " whitespace
 filetype plugin indent on
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+" set tabstop=4
+" set softtabstop=4
+" set shiftwidth=4
+" set expandtab
 set smartindent
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+" autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.go,*.mod setlocal noexpandtab tabstop=4 shiftwidth=4
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set list
@@ -101,6 +104,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " autocmd VimEnter * wincmd p
 " close nerdtree if only pane left
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" refresh nerdtree when switching to it
+autocmd BufEnter NERD_tree_* | execute 'normal R'
 
 " airline
 let g:airline_theme='deus'
