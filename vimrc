@@ -104,8 +104,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " autocmd VimEnter * wincmd p
 " close nerdtree if only pane left
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" refresh nerdtree when switching to it
-autocmd BufEnter NERD_tree_* | execute 'normal R'
 
 " airline
 let g:airline_theme='deus'
@@ -144,5 +142,6 @@ fun ToggleCopyPasteMode()
     " toggle line numbers and whitespace chars for better system / terminal copy paste
     set number!
     set list!
+    set clipboard^=unnamed,unnamedplus
 endfun
 
