@@ -82,6 +82,8 @@ nnoremap <c-p> :FZF<cr>
 " vim-go get referrers
 nmap <leader>r <Plug>(go-referrers)
 nmap <leader>f :Ag<CR>
+" open quickfix window in a vertical split
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
 " coc
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-go', 'coc-html']
@@ -121,6 +123,18 @@ let g:go_highlight_build_constraints=1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_referrers_mode='gopls'
+let g:go_debug_windows = {
+    \ 'vars': 'rightbelow 50vnew',
+    \ 'stack': 'rightbelow 10new',
+\ }
+let g:go_debug_mappings = {
+    \ '(go-debug-continue)': {'key': 'c', 'arguments': '<nowait>'},
+    \ '(go-debug-next)': {'key': 'n', 'arguments': '<nowait>'},
+    \ '(go-debug-step)': {'key': 's'},
+    \ '(go-debug-print)': {'key': 'p'},
+    \ '(go-debug-breakpoint)': {'key': 'b'},
+\}
+
 
 " gotests-vim
 let g:gotests_template = ''
