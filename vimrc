@@ -79,8 +79,10 @@ map <F4> :NERDTreeFind<cr>
 map <F5> :UndotreeToggle<cr>
 " fzf -> ctrlp
 nnoremap <c-p> :FZF<cr>
-" vim-go get referrers
-nmap <leader>r <Plug>(go-referrers)
+" vim-go
+au FileType go nmap <leader>r <Plug>(go-referrers)
+au FileType go nmap <leader>gd <Plug>(go-def-vertical)
+" silver searcher in cwd
 nmap <leader>f :Ag<CR>
 " open quickfix window in a vertical split
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
