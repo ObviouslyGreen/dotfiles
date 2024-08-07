@@ -82,8 +82,8 @@ nnoremap <c-p> :FZF<cr>
 " vim-go
 au FileType go nmap <leader>r <Plug>(go-referrers)
 au FileType go nmap <leader>gd <Plug>(go-def-vertical)
-" silver searcher in cwd
-nmap <leader>f :Ag<CR>
+" ripgrep in cwd
+nmap <leader>f :Rg<CR>
 " open quickfix window in a vertical split
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
@@ -115,6 +115,7 @@ let g:airline_powerline_fonts=1
 
 " vim-go
 let g:go_fmt_command="goimports"
+let g:go_imports_mode="goimports"
 let g:go_highlight_types=1
 let g:go_highlight_fields=1
 let g:go_highlight_functions=1
@@ -122,9 +123,11 @@ let g:go_highlight_methods=1
 let g:go_highlight_operators=1
 let g:go_highlight_extra_types=1
 let g:go_highlight_build_constraints=1
+let g:go_doc_popup_window=1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_referrers_mode='gopls'
+let g:go_debug_address='localhost:2345'
 let g:go_debug_windows = {
     \ 'vars': 'rightbelow 50vnew',
     \ 'stack': 'rightbelow 10new',
