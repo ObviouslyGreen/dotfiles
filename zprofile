@@ -9,7 +9,7 @@ if [ -d "$HOME/bin" ] ; then
     pathadd "$HOME/bin"
 fi
 pathadd /usr/local/bin
-pathadd /opt/homebrew
+pathadd /usr/local/opt/tcl-tk/bin
 
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
@@ -24,7 +24,7 @@ bashcompinit
 # paths
 pathadd /Users/shibo/scripts
 export GOPATH=/Users/shibo/Code/go
-# export GO111MODULE=on
+export GO111MODULE=auto
 pathadd "$GOPATH/bin"
 export PY=/Users/shibo/Code/python
 export JS=/Users/shibo/Code/js
@@ -49,6 +49,7 @@ alias gcb='git checkout -b'
 alias gcm='git commit -m '
 alias gca='git commit --amend'
 alias gd='git diff'
+alias gdh='git diff HEAD~ HEAD'
 alias gds='git diff --staged'
 alias gm='git merge'
 alias gmf='git merge --no-ff'
@@ -63,12 +64,10 @@ alias memcached-restart="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.m
 alias agfzf='ag --nobreak --nonumbers --noheading . | fzf'
 
 # init pyenv
-eval "$(pyenv init -)"
-
-# init nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-pathadd "$(npm bin -g)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 export GPG_TTY=$(tty)
-eval $(/opt/homebrew/bin/brew shellenv)
+
+export AWS_PROFILE=mfa
