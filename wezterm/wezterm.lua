@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-
 local config = wezterm.config_builder()
 
 -- Theme
@@ -25,5 +24,29 @@ config.window_frame = {
   font_size = 11
 }
 config.native_macos_fullscreen_mode = true
+
+-- KEYBINDS
+config.keys = {
+  {
+    key = 'h',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'l',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'k',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'j',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Down',
+  },
+}
 
 return config
