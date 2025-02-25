@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.front_end = 'WebGpu'
+
 -- Theme
 local scheme = wezterm.color.get_builtin_schemes()['GruvboxDark']
 scheme.foreground = '#c5c8c6'
@@ -26,27 +28,64 @@ config.window_frame = {
 config.native_macos_fullscreen_mode = true
 
 -- KEYBINDS
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
   {
     key = 'h',
-    mods = 'CTRL|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.ActivatePaneDirection 'Left',
   },
   {
     key = 'l',
-    mods = 'CTRL|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.ActivatePaneDirection 'Right',
   },
   {
     key = 'k',
-    mods = 'CTRL|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.ActivatePaneDirection 'Up',
   },
   {
     key = 'j',
-    mods = 'CTRL|SHIFT',
+    mods = 'CMD',
     action = wezterm.action.ActivatePaneDirection 'Down',
   },
+  {
+    key = '!',
+    mods = 'LEADER',
+    action = wezterm.action_callback(function(win, pane)
+      local tab, window = pane:move_to_new_window()
+    end),
+  },
+  {
+    key = 'i',
+    mods = 'LEADER',
+    action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }
+  },
+  {
+    key = 's',
+    mods = 'LEADER',
+    action = wezterm.action.SplitHorizontal{ domain = "CurrentPaneDomain" }
+  },
+  {
+    key = 'LeftArrow',
+    mods = 'LEADER',
+    action = wezterm.action.AdjustPaneSize { 'Left', 5 },
+  },
+  {
+    key = 'DownArrow',
+    mods = 'LEADER',
+    action = wezterm.action.AdjustPaneSize { 'Down', 5 },
+  },
+  {
+    key = 'UpArrow',
+    mods = 'LEADER',
+    action = wezterm.action.AdjustPaneSize { 'Up', 5 }
+  },
+  {
+    key = 'RightArrow',
+    mods = 'LEADER',
+    action = wezterm.action.AdjustPaneSize { 'Right', 5 },
+  },
 }
-
 return config

@@ -52,7 +52,7 @@ autocmd BufNewFile,BufRead *.go,*.mod setlocal noexpandtab tabstop=4 shiftwidth=
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set list
 " strip trailing whitespace automatically
-autocmd BufWritePre *.txt,*.js,*.py,*.sh,*.go :call CleanExtraSpaces()
+autocmd BufWritePre *.txt,*.js,*.py,*.sh,*.go,*.lua :call CleanExtraSpaces()
 
 " colors
 set t_Co=256
@@ -79,9 +79,14 @@ map <F4> :NERDTreeFind<cr>
 map <F5> :UndotreeToggle<cr>
 " fzf -> ctrlp
 nnoremap <c-p> :FZF<cr>
+
+nmap <leader>r <Plug>(coc-references)
+nmap gd <Plug>(coc-definition)
+
 " vim-go
 au FileType go nmap <leader>r <Plug>(go-referrers)
 au FileType go nmap <leader>gd <Plug>(go-def-vertical)
+
 " ripgrep in cwd
 nmap <leader>f :Rg<CR>
 " open quickfix window in a vertical split
@@ -139,7 +144,6 @@ let g:go_debug_mappings = {
     \ '(go-debug-print)': {'key': 'p'},
     \ '(go-debug-breakpoint)': {'key': 'b'},
 \}
-
 
 " gotests-vim
 let g:gotests_template = ''
