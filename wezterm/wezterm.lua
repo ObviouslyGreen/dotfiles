@@ -1,8 +1,6 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.front_end = 'WebGpu'
-
 -- Theme
 local scheme = wezterm.color.get_builtin_schemes()['GruvboxDark']
 scheme.foreground = '#c5c8c6'
