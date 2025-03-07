@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " general plugins
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
@@ -80,9 +80,6 @@ map <F5> :UndotreeToggle<cr>
 " fzf -> ctrlp
 nnoremap <c-p> :FZF<cr>
 
-nmap <leader>r <Plug>(coc-references)
-nmap gd <Plug>(coc-definition)
-
 " vim-go
 au FileType go nmap <leader>r <Plug>(go-referrers)
 au FileType go nmap <leader>gd <Plug>(go-def-vertical)
@@ -93,8 +90,11 @@ nmap <leader>f :Rg<CR>
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
 " coc
+nmap <leader>r <Plug>(coc-references)
+nmap gd <Plug>(coc-definition)
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-go', 'coc-html']
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+autocmd BufWritePre *.py silent! :call CocAction('runCommand', 'python.sortImports')
 
 " copilot
 let g:copilot_filetypes={
@@ -167,4 +167,3 @@ fun ToggleCopyPasteMode()
     set list!
     set clipboard^=unnamed,unnamedplus
 endfun
-
