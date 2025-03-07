@@ -1,5 +1,12 @@
 {
+    "[python]": {
+        "coc.preferences.formatOnSave": true
+    },
     "pyright.inlayHints.functionReturnTypes": true,
     "pyright.inlayHints.variableTypes": false,
-    "pyright.inlayHints.parameterTypes":true 
+    "pyright.inlayHints.parameterTypes":true ,
+    "pyright.organizeimports.provider": "isort",
+    "python.sortImports.path": "isort",
+    "python.sortImports.args": ["--profile", "black"],
+    "python.formatting.provider": "ruff"
 }
