@@ -1,19 +1,10 @@
 watch_stylesheet: true
 watch_config: true
 
-# This komorebi setting will be used for tray context menu.
-# If you don't use komorebi, you can remove this section.
-komorebi:
-  start_command: "komorebic start --whkd"
-  stop_command: "komorebic stop --whkd"
-  reload_command: "komorebic reload-configuration"
-
 # This is the main configuration file for Yet Another Status Bar (YASB)
 bars:
   status-bar:
     enabled: true
-    #screens: ['DELL P2419H (1)']
-    #screens: ['DELL P2419H (2)']
     screens: ["*"]
     class_name: "yasb-bar"
     alignment:
@@ -37,7 +28,7 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["win_button", "apps", "komorebi_workspaces", "active_window"]
+      left: ["win_button", "apps", "active_window"]
       center: ["clock", "taskbar"]
       right: ["cava", "media", "weather", "systeminfo-grouper", "power_menu"]
 widgets:
@@ -74,22 +65,12 @@ widgets:
       max_length_ellipsis: "..."
       monitor_exclusive: true
 
-  battery:
-    type: "yasb.battery.BatteryWidget"
-    options:
-      label: "<span>{icon}</span>{percent}%"
-      label_alt: "{icon} {percent}% | time: {time_remaining}"
-      charging_options:
-        icon_format: "{charging_icon}"
-
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%a %d, %b %H:%M}"
-      label_alt: "{%A %d %B %Y, %H:%M}"
-      #locale: "en_EN' # Langugae for date, you can set your own, example fr_FR
-      timezones: [] #Looking up time zone info from registry
-      #timezones: ["America/Montreal"]
+      label: "{%a %#d, %b %#I:%M %p}"
+      label_alt: "{%A %#d %B %Y, %#I:%M %p}"
+      timezones: [] # Looking up time zone info from registry
       calendar:
         blur: True
         round_corners: True
@@ -128,58 +109,6 @@ widgets:
       callbacks:
         on_right: "exec cmd /c Taskmgr"
 
-  komorebi_workspaces:
-    type: "komorebi.workspaces.WorkspaceWidget"
-    options:
-      label_offline: "\u26a1 Offline"
-      label_workspace_btn: "\udb81\udc3d"
-      label_workspace_active_btn: ""
-      label_workspace_populated_btn: "\udb81\udc3e"
-      label_default_name: "{index}"
-      label_zero_index: false
-      hide_empty_workspaces: false
-      hide_if_offline: True
-      animation: true
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-
-  komorebi_active_layout:
-    type: "komorebi.active_layout.ActiveLayoutWidget"
-    options:
-      hide_if_offline: true
-      label: "{icon}"
-      layouts:
-        [
-          "bsp",
-          "columns",
-          "rows",
-          "grid",
-          "vertical_stack",
-          "horizontal_stack",
-          "ultrawide_vertical_stack",
-          "right_main_vertical_stack",
-        ]
-      layout_icons:
-        bsp: "BSP"
-        columns: "COLS"
-        rows: "ROWS"
-        grid: "GRID"
-        vertical_stack: "V-STACK"
-        horizontal_stack: "H-STACK"
-        ultrawide_vertical_stack: "W-STACK"
-        right_main_vertical_stack: "RMV-STACK"
-        monocle: "MONOCLE"
-        maximised: "MAX"
-        floating: "FLOATING"
-        paused: "PAUSED"
-      callbacks:
-        on_left: "next_layout"
-        on_middle: "toggle_monocle"
-        on_right: "prev_layout"
-
   wifi:
     type: "yasb.wifi.WifiWidget"
     options:
@@ -190,31 +119,6 @@ widgets:
         on_left: "exec cmd.exe /c start ms-settings:network"
         on_middle: "do_nothing"
         on_right: "toggle_label"
-
-  traffic:
-    type: "yasb.traffic.TrafficWidget"
-    options:
-      label: "<span>\udb86\uddb3</span>{download_speed} | <span>\udb86\uddb2</span>{upload_speed}"
-      label_alt: "Download {download_speed} \ue621 Upload {upload_speed}"
-      update_interval: 1000 # Update interval should be a multiple of 1000
-      callbacks:
-        on_left: "toggle_label"
-        on_right: "exec cmd /c Taskmgr"
-
-  ip_info:
-    type: "yasb.custom.CustomWidget"
-    options:
-      label: "<span>\udb81\udd9f</span> {data[ip]}"
-      label_alt: "<span>\uf450</span> {data[city]} {data[region]}, {data[country]}"
-      class_name: "ip-info-widget"
-      exec_options:
-        run_cmd: "curl.exe https://ipinfo.io"
-        run_interval: 120000 # every 5 minutes
-        return_format: "json"
-      callbacks:
-        on_left: "toggle_label"
-        on_middle: "exec cmd /c ncpa.cpl" # open network settings
-        on_right: "exec cmd /c start https://ipinfo.io/{data[ip]} " # open ipinfo in browser
 
   weather:
     type: "yasb.weather.WeatherWidget"
@@ -284,8 +188,8 @@ widgets:
         restart: ["\uead2", "Restart"]
         hibernate: ["\uf28e", "Hibernate"]
         cancel: ["\udb81\udf3a", "Cancel"]
-        #force_shutdown: ["\uf011","Force Shut Down"]
-        #force_restart: ["\uead2","Force Restart"]
+        # force_shutdown: ["\uf011","Force Shut Down"]
+        # force_restart: ["\uead2","Force Restart"]
 
   apps:
     type: "yasb.applications.ApplicationsWidget"
@@ -297,9 +201,6 @@ widgets:
             launch: "C:\\Program Files\\WezTerm\\wezterm-gui.exe",
           }
         - { icon: "\uf413", launch: "explorer c:\\Users\\Shibo" }
-        #- {icon: "\udb82\ude1e", launch: "C:\\Users\\amn\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"}
-
-        #- {icon: "\ue217", launch: "C:\\Users\\amn\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe"}
         # - { icon: "\uf0a2", launch: "notification_center" }
         # - { icon: "\ueb51", launch: "quick_settings" }
         - {
@@ -322,39 +223,6 @@ widgets:
         # - { icon: "\uf422", launch: "search" }
         #- {icon: "\udb84\udf55", launch: "widget"}
         # Currently available to use quick_settings, notification_center, search, widget, launcher (launcher will trigger ALT+A)
-
-  github:
-    type: "yasb.github.GithubWidget"
-    options:
-      label: "<span>\ueba1</span>"
-      label_alt: "Notifications {data}" # {data} return number of unread notification
-      token: ghp_xxxxxxxxxxx # GitHub Personal access tokens (classic) https://github.com/settings/tokens
-      max_notification: 20 # Max number of notification displaying in menu max: 50
-      only_unread: false # Show only unread or all notifications;
-      max_field_size: 54 # Max characters in title before truncation.
-      menu_width: 400
-      menu_height: 400
-      menu_offset: 240
-      update_interval: 300 # Check for new notification in seconds
-
-  wallapers:
-    type: "yasb.wallpapers.WallpapersWidget"
-    options:
-      label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\xxx\\Images" # Path to folder with images
-      change_automatically: false # Automatically change wallpaper
-      update_interval: 60 # If change_automatically is true, update interval in seconds
-
-  nvidia_temp:
-    type: "yasb.custom.CustomWidget"
-    options:
-      label: "{data}<span>\udb81\udd04</span>"
-      label_alt: "{data}"
-      class_name: "system-widget"
-      exec_options:
-        run_cmd: "powershell nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader"
-        run_interval: 10000 # run every 10 sec
-        return_format: "string"
 
   win_button:
     type: "yasb.custom.CustomWidget"
@@ -396,11 +264,11 @@ widgets:
       tooltip: true
       show_only_visible: false
       strict_filtering: true
-      monitor_exclusive: false
+      monitor_exclusive: true
       animation:
         enabled: true
       preview:
-        enabled: false
+        enabled: true
         width: 240
         delay: 400
         padding: 8
@@ -436,4 +304,4 @@ widgets:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "systeminfo-grouper"
-      widgets: ["gpu", "cpu", "memory"]
+      widgets: ["gpu", "cpu", "memory", "wifi"]

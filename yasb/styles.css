@@ -1,372 +1,437 @@
-/*
-.widget .label {} -> Global label for all
-.active-window-widget {} -> Styles specific to the active window widget
-.clock-widget {} -> Styles specific to the clock widget
-.cpu-widget {} -> Styles specific to the CPU widget
-.memory-widget {} -> Styles specific to the memory widget
-.weather-widget {} -> Styles specific to the weather widget
-.komorebi-workspaces {} -> Styles specific to komorebi workspaces
-.komorebi-active-layout {} -> Styles specific to komorebi active layout
-.volume-widget {} -> Styles specific to the volume widget
-.apps-widget {} -> Styles specific to the apps widget
-.power-menu-widget {} -> Styles for the power menu button widget
-.power-menu-popup {} -> Styles for the power menu popup widget
-.power-menu-popup > .button {} -> Styles for power buttons inside the popup
-.power-menu-popup > .button > .icon,
-.power-menu-popup > .button > .label {} -> Styles for power buttons icons and labels inside the popup
-.media-widget {} -> Styles specific to the media widget
-.github-widget {} -> Styles specific to the github widget
-*/
+/* ==========================================================================
+   THEME CONFIGURATION (Variables)
+   ========================================================================== */
+:root {
+    /* --- Backgrounds --- */
+    --bg-bar: #293136;
+    --bg-popup: #1e2326;
+    --bg-widget: #374145;
+    --bg-hover: #232a2e;
+
+    /* --- Text & Accents --- */
+    --text-main: #a7c080; /* Pale Green */
+    --text-dim: #83c092; /* Dim Green */
+    --text-white: #ffffff;
+
+    --accent-red: #e67e80;
+    --accent-yellow: #dbbc7f;
+    --accent-cyan: #7fbbb3;
+
+    /* Taskbar Active */
+    --accent-active: #83c092;
+
+    /* --- Taskbar Urgent (Flashing) --- */
+    --urgent-color: rgba(219, 188, 127, 0.8);
+    --urgent-glow: rgba(219, 188, 127, 0.6);
+
+    /* --- Settings --- */
+    --font-stack: "FiraCode Nerd Font", monospace;
+    --radius-sm: 8px;
+    --radius-lg: 12px;
+    --transition: all 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   GLOBAL RESET
+   ========================================================================== */
 * {
     font-size: 11px;
-    color: #a7c080;
+    color: var(--text-main);
     font-weight: 400;
-    font-family: "FiraCode Nerd Font";
+    font-family: var(--font-stack);
     margin: 0;
     padding: 0;
 }
+
 .yasb-bar {
     padding: 0 8px;
     margin: 0;
-    background-color: #293136;
+    background-color: var(--bg-bar);
 }
+
 .widget {
     padding: 0 8px;
     margin: 0;
 }
 
+/* ==========================================================================
+   ACTIVE WINDOW WIDGET
+   ========================================================================== */
 .active-window-widget .icon {
     margin-right: 8px;
 }
 
+/* ==========================================================================
+   KOMOREBI WORKSPACES
+   ========================================================================== */
 .komorebi-workspaces .widget-container {
     margin-left: 0px;
-}
-.komorebi-workspaces .widget-container {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: none;
 }
+
 .komorebi-workspaces .offline-status {
-    color: var(--subtext1);
+    color: var(--text-dim);
     font-size: 12px;
-    padding: 0 0px;
     font-weight: 600;
 }
+
 .komorebi-workspaces .ws-btn {
     border: none;
-    background-color: #374145;
+    background-color: var(--bg-widget);
     margin: 0 3px;
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    color: #374145;
+    color: var(--bg-widget);
+    transition: var(--transition);
 }
+
 .komorebi-workspaces .ws-btn:hover {
-    color: #232a2e;
-    background-color: #232a2e;
+    color: var(--bg-hover);
+    background-color: var(--bg-hover);
 }
+
 .komorebi-workspaces .ws-btn.populated:hover {
-    color: rgba(0, 0, 0, 0);
-    background-color: var(--overlay1);
+    color: transparent;
+    background-color: var(--bg-hover);
 }
+
 .komorebi-workspaces .ws-btn.populated {
-    color: rgba(0, 0, 0, 0);
-    background-color: #dbbc7f;
+    color: transparent;
+    background-color: var(--accent-yellow);
 }
+
 .komorebi-workspaces .ws-btn.active {
-    color: rgba(0, 0, 0, 0);
-    background-color: #a7c080;
+    color: transparent;
+    background-color: var(--text-main);
     width: 28px;
     height: 10px;
 }
 
-/*POWER MENU WIDGET*/
+/* ==========================================================================
+   POWER MENU WIDGET
+   ========================================================================== */
 .uptime {
     font-size: 14px;
     margin-bottom: 10px;
-    color: #83c092;
+    color: var(--text-dim);
     font-weight: 600;
-    font-family: "Segoe UI";
 }
+
 .power-menu-widget .label {
-    color: #e67e80;
+    color: var(--accent-red);
     font-size: 13px;
+    transition: var(--transition);
 }
+
 .power-menu-popup {
-    background-color: #1e2326;
-    border-radius: 12px;
-    border: 4px solid #232a2e;
+    background-color: var(--bg-popup);
+    border-radius: var(--radius-lg);
+    border: 4px solid var(--bg-hover);
 }
+
 .power-menu-popup .button {
     padding: 0;
     width: 240px;
     height: 120px;
-    border-radius: 8px;
-    background-color: #232a2e;
-    font-family: "Segoe UI";
-    color: #83c092;
-    border: 1px solid #232a2e;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-hover);
+    color: var(--text-dim);
+    border: 1px solid var(--bg-hover);
     margin: 8px;
+    transition: var(--transition);
 }
+
 .power-menu-popup .button.hover {
-    background-color: #293136;
-    border: 1px solid #293136;
+    background-color: var(--bg-bar);
+    border: 1px solid var(--bg-bar);
 }
+
 .power-menu-popup .button .label {
     margin-bottom: 8px;
     font-size: 16px;
     font-weight: 600;
-    color: #83c092;
-    font-family: "Segoe UI";
+    color: var(--text-dim);
 }
+
 .power-menu-popup .button .icon {
     font-size: 48px;
     padding-top: 8px;
-    color: #83c092;
-}
-.power-menu-popup .button.cancel .icon {
-    color: #e67e80;
-}
-.power-menu-popup .button.cancel .label {
-    color: #e67e80;
-}
-.power-menu-popup .button.shutdown .icon {
-    color: #7fbbb3;
-}
-.power-menu-popup .button.shutdown .label {
-    color: #7fbbb3;
+    color: var(--text-dim);
 }
 
-/*ICONS*/
+.power-menu-popup .button.cancel .icon,
+.power-menu-popup .button.cancel .label {
+    color: var(--accent-red);
+}
+
+.power-menu-popup .button.shutdown .icon,
+.power-menu-popup .button.shutdown .label {
+    color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   HARDWARE & ICONS
+   ========================================================================== */
 .icon {
     font-size: 16px;
-}
-.volume-widget .icon {
-    color: #83c092;
 }
 
 .cpu-widget .icon,
 .gpu-widget .icon,
 .memory-widget .icon,
-.volume-widget .icon,
 .weather-widget .icon,
 .wifi-widget .icon {
     margin: 0 4px 1px 0;
-}
-.cpu-widget .icon,
-.gpu-widget .icon,
-.memory-widget .icon {
-    font-size: 14px;
-    color: #83c092;
+    color: var(--text-dim);
 }
 
-.gpu-widget .icon {
-    font-size: 22px;
-}
-.memory-widget .icon {
-    color: #83c092;
-}
+.cpu-widget .icon,
+.memory-widget .icon,
 .wifi-widget .icon {
     font-size: 14px;
-    color: #83c092;
-}
-.weather-widget .icon.sunnyDay {
-    color: #dbbc7f;
 }
 
-.weather-widget .label.sunnyDay {
-    color: #dbbc7f;
-}
+.gpu-widget .icon,
 .weather-widget .icon.clearNight {
-    color: #7fbbb3;
     font-size: 22px;
+}
+
+.weather-widget .icon.clearNight {
+    color: var(--accent-cyan);
     margin: 1px 2px 0px 0;
 }
 
+.weather-widget .icon.sunnyDay,
+.weather-widget .label.sunnyDay {
+    color: var(--accent-yellow);
+}
+
+/* ==========================================================================
+   GROUPS (System Info & Apps)
+   ========================================================================== */
+
+/* Spacing Hack Preserved */
+.systeminfo-grouper .container {
+    background-color: var(--bg-widget);
+    border: 1px solid var(--bg-widget);
+
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+
+    border-radius: 15px;
+}
+
+.systeminfo-grouper .grouper-button {
+    font-size: 12px;
+    color: var(--text-white);
+    padding: 0 8px;
+    background-color: transparent;
+    border: none;
+    transition: var(--transition);
+}
+
+.systeminfo-grouper .grouper-button:hover {
+    /* Changed blue hover to match theme */
+    color: var(--accent-yellow);
+}
+
+/* Spacing Hack Preserved */
 .apps-widget .widget-container {
-    background-color: #374145;
-    border: 1px solid #374145;
+    background-color: var(--bg-widget);
+    border: 1px solid var(--bg-widget);
+
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
+
     border-radius: 15px;
 }
 
 .apps-widget {
     padding: 2px 0px 0px 4px;
 }
+
 .apps-widget .label {
     font-size: 12px;
     padding: 0 3px;
-    color: #83c092;
-}
-
-/* MEDIA WIDGET */
-.media-widget {
-    padding: 0;
-    padding-left: 2px;
-    margin: 0;
-    border-radius: 16px;
-    margin-right: 8px;
-}
-.media-widget .label {
-    background-color: #1e232600;
-}
-.media-widget .btn {
-    color: #83c092;
-    padding: 0 3px;
-    margin: 4px 0;
-    font-family: Segoe Fluent Icons;
-}
-.media-widget .btn:hover {
-    color: #dbbc7f;
-}
-.media-widget .btn.play {
-    background-color: #293136;
-    border-radius: 12px;
-    font-size: 14px;
-}
-.media-widget .btn.disabled:hover,
-.media-widget .btn.disabled {
-    color: #293136;
-    font-size: 12px;
-    background-color: #293136;
-}
-
-/*CALENDAR AND VOLUME SLIDER*/
-.calendar {
-    background-color: #293136;
-}
-.calendar .calendar-table,
-.calendar .calendar-table::item {
-    background-color: rgba(17, 17, 27, 0);
-    color: #7fbbb3;
-    font-family: "Segoe UI";
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-.calendar .calendar-table::item:selected {
-    color: #dbbc7f;
-    border: 2px solid #232a2e;
-    background-color: #232a2e;
-    border-radius: 10px;
-}
-.calendar .day-label {
-    margin-top: 20px;
-}
-.calendar .day-label,
-.calendar .month-label,
-.calendar .date-label {
-    font-family: "Segoe UI";
-    font-size: 16px;
-    color: #a7c080;
-    font-weight: 700;
-    min-width: 180px;
-    max-width: 180px;
-}
-.calendar .month-label {
-    font-weight: normal;
-}
-.calendar .date-label {
-    font-size: 88px;
-    font-weight: 900;
-    color: #a7c080;
-    margin-top: -20px;
-}
-
-.volume-slider {
-    border: none;
-}
-
-.volume-slider::handle {
-    color: #83c092;
-    border: 1px solid #83c092;
-    border-radius: 7px;
-    background-color: #83c092;
-}
-.audio-menu {
-    background-color: #293136;
-}
-.audio-container .device {
-    background-color: transparent;
-    border: none;
-    padding: 6px 8px 6px 4px;
-    margin: 2px 0;
-    font-size: 12px;
-    border-radius: 4px;
-}
-.audio-container .device.selected {
-    background-color: #374145;
-}
-.audio-container .device:hover {
-    background-color: #232a2e;
-}
-
-.taskbar-widget .app-container {
-    margin: 4px 2px;
-    border-radius: 4px;
-    padding: 0 4px;
-}
-.taskbar-widget .app-container.foreground {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-.taskbar-widget .app-container.flashing {
-    background-color: rgba(255, 106, 106, 0.63);
-}
-.taskbar-widget .app-container.running {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-.taskbar-widget .app-container:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-.taskbar-widget .app-container .app-title {
-    padding-left: 4px;
-}
-/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
-.taskbar-preview {
-    border-radius: 8px;
-    background-color: #2b2c2d;
-}
-.taskbar-preview.flashing {
-    background-color: #7f434a;
-}
-.taskbar-preview .header {
-    padding-bottom: 12px;
-    padding-top: 4px;
-}
-.taskbar-preview .header .title {
-    color: #d6d6d6;
-    font-family: "Segoe UI";
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.systeminfo-grouper .container {
-    /* The name of the css class is the name given in the config */
-    background-color: #374145;
-    border: 1px solid #374145;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-radius: 15px;
-}
-
-.systeminfo-grouper .grouper-button {
-    font-size: 12px;
-    color: #ffffff;
-    padding: 0 8px;
-    background-color: transparent;
-    border: none;
-}
-
-.systeminfo-grouper .grouper-button:hover {
-    color: #88c0d0;
+    color: var(--text-dim);
 }
 
 .glazewm-grouper .container {
     background-color: rgba(46, 52, 64, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 4 0px;
+    margin: 4px 0;
     border-radius: 12px;
+}
+
+/* ==========================================================================
+   MEDIA WIDGET
+   ========================================================================== */
+.media-widget {
+    padding: 0;
+    padding-left: 2px;
+    margin: 0 8px 0 0;
+    border-radius: 16px;
+}
+
+.media-widget .label {
+    background-color: transparent;
+}
+
+.media-widget .btn {
+    color: var(--text-dim);
+    padding: 0 3px;
+    margin: 4px 0;
+    font-family: var(--font-stack);
+    transition: var(--transition);
+}
+
+.media-widget .btn:hover {
+    color: var(--accent-yellow);
+}
+
+.media-widget .btn.play {
+    background-color: var(--bg-bar);
+    border-radius: var(--radius-lg);
+    font-size: 14px;
+}
+
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+    color: var(--bg-bar);
+    font-size: 12px;
+    background-color: var(--bg-bar);
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   CALENDAR
+   ========================================================================== */
+.calendar {
+    background-color: var(--bg-bar);
+}
+
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+    background-color: transparent;
+    color: var(--accent-cyan);
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.calendar .calendar-table::item:selected {
+    color: var(--accent-yellow);
+    border: 2px solid var(--bg-hover);
+    background-color: var(--bg-hover);
+    border-radius: 10px;
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+    font-size: 16px;
+    color: var(--text-main);
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+}
+
+.calendar .day-label {
+    margin-top: 20px;
+}
+.calendar .month-label {
+    font-weight: normal;
+}
+
+.calendar .date-label {
+    font-size: 88px;
+    font-weight: 900;
+    margin-top: -20px;
+}
+
+/* ==========================================================================
+   TASKBAR WIDGET
+   ========================================================================== */
+.taskbar-widget .app-container {
+    margin: 3px 4px;
+    border-radius: var(--radius-lg);
+    padding: 0 8px;
+    background-color: transparent;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+/* Active Window (Foreground) */
+.taskbar-widget .app-container.foreground {
+    /* Using the Green variable we set at the top */
+    background-color: var(--accent-active);
+    color: #1e1e2e;
+    /* Green Glow */
+    box-shadow: 0 0 8px rgba(167, 192, 128, 0.4);
+}
+
+/* Open Apps (Background) */
+.taskbar-widget .app-container.running {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.taskbar-widget .app-container:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-widget .app-container .app-title {
+    padding-left: 8px;
+    padding-right: 4px;
+    font-weight: 600;
+}
+
+/* --- Taskbar Flashing Animation --- */
+@keyframes taskbar-flash {
+    0% {
+        background-color: var(--urgent-color);
+        box-shadow: 0 0 8px var(--urgent-glow);
+    }
+    50% {
+        background-color: rgba(255, 106, 106, 0.4);
+        box-shadow: 0 0 2px rgba(255, 106, 106, 0.2);
+    }
+    100% {
+        background-color: var(--urgent-color);
+        box-shadow: 0 0 8px var(--urgent-glow);
+    }
+}
+
+.taskbar-widget .app-container.flashing {
+    background-color: var(--urgent-color) !important;
+    color: var(--text-white) !important;
+    animation: taskbar-flash 3s infinite ease-in-out !important;
+    transition: none !important;
+}
+
+/* --- Taskbar Preview Popup --- */
+.taskbar-preview {
+    border-radius: var(--radius-lg);
+    background-color: #2b2c2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.taskbar-preview.flashing {
+    background-color: #7f434a;
+}
+
+.taskbar-preview .header {
+    padding-bottom: 12px;
+    padding-top: 8px;
+}
+
+.taskbar-preview .header .title {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 14px;
 }
