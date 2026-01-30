@@ -48,10 +48,10 @@ widgets:
       thumbnail_padding: 8
       thumbnail_corner_radius: 0 # Set to 0 for square corners
       icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
+        prev_track: "\uf048" # 
+        next_track: "\uf051" # 
+        play: "\uf04b" # 
+        pause: "\uf04c" # 
 
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
