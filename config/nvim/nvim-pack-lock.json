@@ -1,0 +1,88 @@
+{
+  "plugins": {
+    "cmp-buffer": {
+      "rev": "b74fab3656eea9de20a9b8116afa3cfc4ec09657",
+      "src": "git@github.com:hrsh7th/cmp-buffer"
+    },
+    "cmp-nvim-lsp": {
+      "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
+      "src": "git@github.com:hrsh7th/cmp-nvim-lsp"
+    },
+    "fzf": {
+      "rev": "260d160973a1df05038c93136a076ca29592e755",
+      "src": "git@github.com:junegunn/fzf"
+    },
+    "fzf.vim": {
+      "rev": "34a564c81f36047f50e593c1656f4580ff75ccca",
+      "src": "git@github.com:junegunn/fzf.vim"
+    },
+    "gitsigns.nvim": {
+      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
+      "src": "git@github.com:lewis6991/gitsigns.nvim"
+    },
+    "gotests-vim": {
+      "rev": "42abccb59e9889cd1ce427b11b2ffbb36f2a46a6",
+      "src": "https://github.com/buoto/gotests-vim"
+    },
+    "gruvbox.nvim": {
+      "rev": "561126520034a1dac2f78ab063db025d12555998",
+      "src": "git@github.com:ellisonleao/gruvbox.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "git@github.com:nvim-lualine/lualine.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "a324581a3c83fdacdb9804b79de1cbe00ce18550",
+      "src": "git@github.com:williamboman/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "src": "git@github.com:williamboman/mason.nvim"
+    },
+    "nvim-cmp": {
+      "rev": "da88697d7f45d16852c6b2769dc52387d1ddc45f",
+      "src": "git@github.com:hrsh7th/nvim-cmp"
+    },
+    "nvim-lspconfig": {
+      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
+      "src": "git@github.com:neovim/nvim-lspconfig"
+    },
+    "nvim-tree.lua": {
+      "rev": "c8d8d515c29f0f0b1a352e0d75616f74f42fc03b",
+      "src": "git@github.com:nvim-tree/nvim-tree.lua"
+    },
+    "nvim-web-devicons": {
+      "rev": "737cf6c657898d0c697311d79d361288a1343d50",
+      "src": "git@github.com:nvim-tree/nvim-web-devicons"
+    },
+    "sidekick.nvim": {
+      "rev": "c2bdf8cfcd87a6be5f8b84322c1b5052e78e302e",
+      "src": "https://github.com/folke/sidekick.nvim"
+    },
+    "undotree": {
+      "rev": "d8f99084d98c32f651860eb0baaf89759f91debc",
+      "src": "git@github.com:mbbill/undotree"
+    },
+    "vim-fugitive": {
+      "rev": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4",
+      "src": "git@github.com:tpope/vim-fugitive"
+    },
+    "vim-go": {
+      "rev": "9f4b56e32774604172be0dd2745b5aeacdb40ff5",
+      "src": "git@github.com:fatih/vim-go"
+    },
+    "vim-pydocstring": {
+      "rev": "9da38e1bb70f5fc9f35ba5abf8ddada81fe2717a",
+      "src": "git@github.com:heavenshell/vim-pydocstring"
+    },
+    "vim-sleuth": {
+      "rev": "be69bff86754b1aa5adcbb527d7fcd1635a84080",
+      "src": "git@github.com:tpope/vim-sleuth"
+    },
+    "vim-sneak": {
+      "rev": "feea86adcfbf8e6b5e71fdd5f4f5736fd8819fdb",
+      "src": "git@github.com:justinmk/vim-sneak"
+    }
+  }
+}
