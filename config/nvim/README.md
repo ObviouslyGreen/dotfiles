@@ -4,7 +4,7 @@ Lua-based Neovim configuration using native `vim.pack` + [lz.n](https://github.c
 
 ## Requirements
 
-- Neovim 0.11+
+- Neovim 0.12+
 - Git
 - [Nerd Font](https://www.nerdfonts.com/) (for file icons and statusline glyphs)
 - [ripgrep](https://github.com/BurntSushi/ripgrep) (for `:Rg`)
