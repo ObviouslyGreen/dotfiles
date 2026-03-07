@@ -91,6 +91,9 @@ local nvim_cmp = {
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
             buffer = ev.buf, silent = true, desc = "LSP: Definition",
           })
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, {
+            buffer = ev.buf, silent = true, desc = "LSP: References",
+          })
         end,
       })
 
