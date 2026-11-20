@@ -2,9 +2,13 @@
 *~
 *.swp
 *.swo
+.vim
 
 # mac
 .DS_Store
 
 # intellij
 .idea
+
+# aider
+*.aider*

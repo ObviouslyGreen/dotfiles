@@ -1,0 +1,29 @@
+{
+  "window.commandCenter": 1,
+  "workbench.colorTheme": "Cursor Dark Midnight",
+  "redhat.telemetry.enabled": false,
+  "javascript.preferences.organizeImports": {},
+  "java.autobuild.enabled": false,
+  "vscode-office.editorTheme": "Dracula",
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit",
+    },
+  },
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  "notebook.defaultFormatter": "ms-python.black-formatter",
+}

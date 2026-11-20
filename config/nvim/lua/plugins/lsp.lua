@@ -64,6 +64,8 @@ local nvim_cmp = {
               cmp.select_next_item()
             elseif vim.snippet.active({ direction = 1 }) then
               vim.snippet.jump(1)
+            elseif require("sidekick").nes_jump_or_apply() then
+            elseif vim.lsp.inline_completion.get() then
             else
               fallback()
             end
@@ -94,6 +96,11 @@ local nvim_cmp = {
           vim.keymap.set("n", "gr", vim.lsp.buf.references, {
             buffer = ev.buf, silent = true, desc = "LSP: References",
           })
+
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, ev.buf) then
+            vim.lsp.inline_completion.enable(true, { bufnr = ev.buf })
+          end
         end,
       })
 

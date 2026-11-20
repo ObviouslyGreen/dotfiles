@@ -8,8 +8,10 @@ pathadd() {
 if [ -d "$HOME/bin" ] ; then
     pathadd "$HOME/bin"
 fi
-pathadd /usr/local/bin
+pathadd /opt/homebrew/bin
 pathadd /usr/local/opt/tcl-tk/bin
+pathadd $HOME/.local/bin
+pathadd /opt/X11/bin
 
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
@@ -22,13 +24,15 @@ autoload bashcompinit
 bashcompinit
 
 # paths
-pathadd /Users/shibo/scripts
-export GOPATH=/Users/shibo/Code/go
+pathadd $HOME/scripts
+export GOPATH=$HOME/Code/go
 export GO111MODULE=auto
 pathadd "$GOPATH/bin"
-export PY=/Users/shibo/Code/python
-export JS=/Users/shibo/Code/js
-export DEV=/Users/shibo/Code/dev
+export CODE=$HOME/Code
+export PY=$HOME/Code/python
+export JS=$HOME/Code/js
+export JAVA=$HOME/Code/java
+export DEV=$HOME/Code/dev
 pathadd "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # aliases
@@ -65,9 +69,14 @@ alias agfzf='ag --nobreak --nonumbers --noheading . | fzf'
 
 # init pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
 
 export GPG_TTY=$(tty)
 
-export AWS_PROFILE=mfa
+
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# Created by `pipx` on 2025-03-06 17:41:21
+export PATH="$PATH:$HOME/.local/bin"

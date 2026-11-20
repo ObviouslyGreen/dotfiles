@@ -24,8 +24,10 @@ config.window_frame = {
   font_size = 11
 }
 config.native_macos_fullscreen_mode = true
+config.notification_handling = 'AlwaysShow'
 
 -- KEYBINDS
+local action = wezterm.action
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
   {
@@ -85,5 +87,11 @@ config.keys = {
     mods = 'LEADER',
     action = wezterm.action.AdjustPaneSize { 'Right', 5 },
   },
+  -- iTerm2 National Text Editing
+  { mods = "OPT", key = "LeftArrow", action = action.SendKey({ mods = "ALT", key = "b" }) },
+  { mods = "OPT", key = "RightArrow", action = action.SendKey({ mods = "ALT", key = "f" }) },
+  { mods = "CMD", key = "LeftArrow", action = action.SendKey({ mods = "CTRL", key = "a" }) },
+  { mods = "CMD", key = "RightArrow", action = action.SendKey({ mods = "CTRL", key = "e" }) },
+  { mods = "CMD", key = "Backspace", action = action.SendKey({ mods = "CTRL", key = "u" }) }
 }
 return config

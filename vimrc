@@ -25,6 +25,7 @@ Plug 'tyru/open-browser-github.vim'
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'buoto/gotests-vim'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -91,6 +92,7 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
 " coc
 nmap <leader>r <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
 nmap gd <Plug>(coc-definition)
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-go', 'coc-html']
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
@@ -101,7 +103,11 @@ let g:copilot_filetypes={
     \ '*': v:false,
     \ 'go': v:true,
     \ 'python': v:true,
+    \ 'java': v:true,
     \ 'javascript': v:true,
+    \ 'typescript': v:true,
+    \ 'javascriptreact': v:true,
+    \ 'typescriptreact': v:true,
 \ }
 
 
@@ -152,6 +158,10 @@ let g:gotests_template = ''
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
+" pydocstring
+let g:pydocstring_enable_mapping = 0
+let g:pydocstring_formatter = 'google'
+
 " functions
 fun CleanExtraSpaces()
     let save_cursor = getpos(".")
@@ -167,3 +177,4 @@ fun ToggleCopyPasteMode()
     set list!
     set clipboard^=unnamed,unnamedplus
 endfun
+

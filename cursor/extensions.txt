@@ -1,0 +1,15 @@
+anysphere.cursorpyright
+anysphere.remote-containers
+bierner.markdown-mermaid
+bpruitt-goddard.mermaid-markdown-syntax-highlighting
+charliermarsh.ruff
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+ms-azuretools.vscode-containers
+ms-azuretools.vscode-docker
+ms-python.black-formatter
+ms-python.debugpy
+ms-python.python
+redhat.java
+redhat.vscode-yaml
+vscodevim.vim

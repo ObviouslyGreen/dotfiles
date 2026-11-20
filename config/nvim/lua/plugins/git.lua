@@ -14,4 +14,9 @@ local fugitive = {
   spec = { "vim-fugitive", lazy = false },
 }
 
-return { gitsigns, fugitive }
+local rhubarb = {
+  src = "https://github.com/tpope/vim-rhubarb",
+  spec = { "vim-rhubarb", lazy = false },
+}
+
+return { gitsigns, fugitive, rhubarb }
