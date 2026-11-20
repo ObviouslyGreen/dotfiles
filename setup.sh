@@ -110,7 +110,7 @@ done
 
 # Re-run after the copies above: they replace ~/.ssh/config and ~/.config/rex,
 # which drops the ssh guard that keeps xterm-rex from reaching remote hosts.
-REX_BIN="/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS/rex"
+REX_BIN="/Applications/Rex.app/Contents/Helpers/Rex Server.rex/Contents/MacOS/rex"
 if [ -x "$REX_BIN" ]; then
     echo "Setting up Rex terminfo and agent skill..."
     "$REX_BIN" terminfo setup
