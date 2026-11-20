@@ -1,4 +1,37 @@
-
+[pull]
+	default = current
+[push]
+	default = current
+[user]
+	name = ObviouslyGreen
+	email = shibo.yao@gmail.com
+	signingkey = 55617AC0C355B933
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[core]
+	excludesfile = /Users/shibo/.gitignore_global
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[credential]
+	helper = osxkeychain
 [http]
 	postBuffer = 524288000
 [interactive]
